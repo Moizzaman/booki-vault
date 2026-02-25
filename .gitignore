@@ -1,0 +1,5 @@
+vault.txt
+temp.txt
+__pycache__/
+*.exe
+.env

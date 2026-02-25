@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Book-i Vault Pro</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body onload="checkInit()">
+    <div class="bird-container"><div class="bird"></div></div>
+    <div class="bird-container bird-container--two"><div class="bird"></div></div>
+
+    <div class="card">
+        <button class="exit-btn-mini" onclick="terminateApp()">×</button>
+        <h2>Book-i Vault</h2>
+
+        <div id="setupDiv" style="display:none;">
+            <p>Welcome. Create a Master Key:</p>
+            <input type="password" id="setupPass" placeholder="New Master Password">
+            <button onclick="run('setup')">Initialize Vault</button>
+        </div>
+
+        <div id="loginDiv" style="display:none;">
+            <input type="password" id="loginPass" placeholder="Master Key">
+            <button onclick="run('auth')">Unlock Vault</button>
+        </div>
+
+        <div id="mainDiv" style="display:none;">
+            <div class="tabs">
+                <button onclick="show('add')">Add</button>
+                <button onclick="show('view')">View</button>
+                <button onclick="show('settings')">System</button>
+            </div>
+
+            <div id="addP" class="panel">
+                <input type="text" id="aS" placeholder="Site Name">
+                <input type="text" id="aP" placeholder="Password">
+                <button onclick="run('add')">
+                    <span id="btnText">Save Securely</span>
+                    <div id="spinner" class="spinner" style="display:none;"></div>
+                </button>
+            </div>
+
+            <div id="viewP" class="panel" style="display:none;">
+                <div id="list" class="list-box"></div>
+                <button onclick="run('view')">Refresh</button>
+            </div>
+
+            <div id="settingsP" class="panel" style="display:none;">
+                <input type="password" id="newM" placeholder="New Master Key">
+                <button onclick="run('change')">Update & Restart</button>
+                <button class="danger-btn" onclick="run('reset')">WIPE ALL DATA</button>
+                <button class="exit-btn-full" onclick="terminateApp()">EXIT APP</button>
+            </div>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
