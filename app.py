@@ -35,8 +35,3 @@ def shutdown():
 
 if __name__ == '__main__':
     app.run(debug=True)
-    
-if __name__ == '__main__':
-    # Koyeb provides a PORT environment variable automatically
-    port = int(os.environ.get("PORT", 8080))
-    app.run(host='0.0.0.0', port=port)
